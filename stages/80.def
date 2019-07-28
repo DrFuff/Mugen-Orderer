@@ -1,0 +1,172 @@
+;ÉNÉåÉÅÉìí‡
+[Info]
+name = "Hrh+%B"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -160
+boundright = 130
+boundhigh = -190
+boundlow = 0
+verticalfollow = 0.2
+tension = 70
+floortension = 120
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+color = 128,128,128
+yscale = .2
+
+[Music]
+bgmusic = sound/80a.ogg
+bgvolume = 100
+
+[BGdef]
+spr = stages/80.sff
+
+
+
+[BG 0] ;ÉJÉ^80!
+type        = normal
+spriteno    = 100,0
+layerno     = 0
+start       = 0,0
+mask        = 1
+delta       = 0.4,0.4
+velocity    = 0,-0.65
+tile        = 0,1
+tilespacing = 0,0
+
+[BG 3] ;îwåiÅiÉçÉSÅj
+type        = normal
+spriteno    = 0,1
+layerno     = 0
+start       = 0,220
+delta       = 0.8,0.8
+mask        = 1
+
+[BG 2];ëOåi
+type  = anim
+actionno = 5
+delta = 1, 1
+spriteno = 0,0
+start = 0,140
+mask = 1
+
+
+
+[BG 1];ëOåi
+type = normal
+spriteno = 1,0
+start = 0,160
+mask = 1
+
+[BG nukahachi]
+type  = anim
+actionno = 6
+start = -20,165
+
+[BG wanda]
+type  = anim
+actionno = 7
+start = 0,160
+
+[Begin Action 5]
+Loopstart
+0, 0, 0, 250, 3500
+0, 0, 0, 180, 4
+0, 0, 0, 160, 4
+0, 0, 0, 140, 4
+0, 0, 0, 120, 4
+0, 0, 0, 100, 4
+0, 0, 0, 100, 4
+0, 0, 0, 80, 4
+0, 0, 0, 60, 4
+0, 0, 0, 40, 4
+0, 0, 0, 20, 4
+0, 0, 0, 0, 800
+0, 0, 0, 20, 4
+0, 0, 0, 40, 4
+0, 0, 0, 60, 4
+0, 0, 0, 80, 4
+0, 0, 0, 100, 4
+0, 0, 0, 120, 4
+0, 0, 0, 140, 4
+0, 0, 0, 160, 4
+0, 0, 0, 180, 4
+0, 0, 0, 250, 3500
+0, 2, 0, 350, 4
+0, 2, 0, 330, 4
+0, 2, 1, 310, 4
+0, 2, 0, 290, 4
+0, 2, 1, 270, 4
+0, 2, 0, 250, 4
+0, 2, 1, 230, 4
+0, 2, 0, 210, 4
+0, 2, 1, 190, 4
+0, 2, 0, 170, 4
+0, 2, 1, 150, 4
+0, 2, 0, 130, 4
+0, 2, 1, 110, 4
+0, 2, 0, 90, 4
+0, 2, 1, 70, 4
+0, 2, 0, 50, 4
+0, 2, 1, 30, 4
+0, 2, 0, 30, 800
+0, 2, 0, 50, 4
+0, 2, 1, 70, 4
+0, 2, 0, 90, 4
+0, 2, 1, 110, 4
+0, 2, 0, 130, 4
+0, 2, 1, 150, 4
+0, 2, 0, 170, 4
+0, 2, 1, 190, 4
+0, 2, 0, 210, 4
+0, 2, 1, 230, 4
+0, 2, 0, 250, 4
+0, 2, 1, 270, 4
+0, 2, 0, 290, 4
+0, 2, 1, 310, 4
+0, 2, 0, 330, 4
+0, 2, 1, 350, 4
+
+[Begin Action 6]
+Loopstart
+20, 0, 0, 0, 5
+20, 1, 0, 0, 5
+
+[Begin Action 7]
+Loopstart
+88, 2, 0, 0, 17
+88, 1, 0, 0, 12
+88, 0, 0, 0, 17
+88, 1, 0, 0, 12

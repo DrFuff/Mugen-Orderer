@@ -1,0 +1,166 @@
+[Info]
+name = "24LuIu+"	;24次元
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -160
+boundright= 160
+boundhigh = 0
+boundlow =0
+verticalfollow = 0.2
+tension = 70
+floortension = 120
+
+[PlayerInfo];
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Common ---
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 214
+autoturn = 1
+resetBG = 0
+
+[Shadow]
+yscale = .60
+value = 96,20,20
+
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/24zigen.ogg
+bgvolume = 100
+;--------------------------------------------------------
+[BGdef]
+spr = stages/24zigen.sff
+debugbg = 0
+
+[BG 01];あ　プサイにファイ
+type     = anim
+actionno = 0
+layerno  = 0
+start    = 0,0
+delta    = 0,0
+trans    = none
+mask     = 0
+
+[BG 01];ビッグブラザー
+type     = anim
+actionno = 2
+layerno  = 0
+start    = 0,0
+delta    = 0,0
+trans    = none
+mask     = 0
+
+[BG 01];硬属群体
+type     = norm
+spriteno = 100,0
+layerno  = 0
+start    = 0,0
+delta    = 1,0
+trans    = none
+mask     = 1
+
+[BG 01];スペクトル
+type     = norm
+spriteno = 100,1
+layerno  = 0
+start    = 0,0
+delta    = 0,0
+trans    = add
+mask     = 0
+id       = 1
+
+;-------------------------------------------------------------------------------------
+[Begin Action 0];世の中ぜんぶ波だらけ
+loopstart
+100,2,0,0,3
+100,2,0,-240,3
+100,2,0,-480,3
+100,2,0,-720,3
+100,2,0,-960,3
+100,2,0,-1200,3
+100,2,0,-1440,3
+100,2,0,-1680,3
+
+100,2,-320,0,3
+100,2,-320,-240,3
+100,2,-320,-480,3
+100,2,-320,-720,3
+100,2,-320,-960,3
+100,2,-320,-1200,3
+100,2,-320,-1440,3
+100,2,-320,-1680,3
+
+100,2,-640,0,3
+100,2,-640,-240,3
+100,2,-640,-480,3
+100,2,-640,-720,3
+100,2,-640,-960,3
+100,2,-640,-1200,3
+100,2,-640,-1440,3
+100,2,-640,-1680,3
+
+[BGCtrlDef move1]
+ctrlID = 1
+looptime = 3840
+[BGCtrl move1]
+type = velset
+x = -1
+time = 0
+[BGCtrl move1]
+type = posset
+x = 0
+time = 0
+
+[Begin Action 2]
+loopstart
+100,3,0,0,2,,a
+100,3,0,-240,2,,a
+100,3,0,-480,2,,a
+100,3,0,-720,2,,a
+100,3,0,-960,2,,a
+100,3,0,-1200,2,,a
+100,3,0,-1440,2,,a
+100,3,0,-1680,2,,a
+
+100,3,-320,0,2,,a
+100,3,-320,-240,2,,a
+100,3,-320,-480,2,,a
+100,3,-320,-720,2,,a
+100,3,-320,-960,2,,a
+100,3,-320,-1200,2,,a
+100,3,-320,-1440,2,,a
+100,3,-320,-1680,2,,a
+
+100,3,-640,0,2,,a
+100,3,-640,-240,2,,a
+100,3,-640,-480,2,,a
+100,3,-640,-720,2,,a
+100,3,-640,-960,2,,a
+100,3,-640,-1200,2,,a
+100,3,-640,-1440,2,,a
+100,3,-640,-1680,2,,a

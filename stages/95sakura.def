@@ -1,0 +1,449 @@
+[Info]
+name = "95#:KH_"	;95ステージ
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -226
+boundright = 226
+boundhigh = -98
+boundlow = 0
+verticalfollow = 0.35
+tension = 70
+floortension = 110
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 90,90,90
+yscale = 0.3
+reflect = 0
+intensity = 64
+fade.range = -400,-100
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/95sakura.ogg
+bgvolume = 100
+
+[BGdef]
+spr = stages/95sakura.sff
+debugbg = 0
+
+;========================================================
+;下に行くほど画像表示優先度が高くなります。複数絵ステージです。
+;「　[BG *]　」を同じように下の順に加えれば、さらに増やせます。
+;--------------------------------------------------------
+;[BG 0]
+;type        = normal    ;画像表示タイプ。Normal=静止画、Anim=アニメ画、Parallax=立体静止画（一点透視図法）
+;spriteNo    = 0,0       ;画像ファイル（*.sff）の画像を表示。Animの時は必要無し
+;layerNo     = 0         ;レイヤー属性。0=奥、1=手前に表示
+;start       = 0,0       ;軸位置。このdefファイルで設定した軸位置から数える
+;delta       = 0,0       ;キャラが動いた時のスクロールスピード。小数点以下可能
+;trans       = none      ;透過処理。Add=加算処理（輝く半透明）,Add1=半透明,Sub=減算処理（影の半透明）,None=透過しない
+;mask        = 0         ;画像の背景色を透過させるかどうか。1=Yes,0=No
+;tile        = 0,0       ;タイル化して同じ画像を複数表示させるかどうか（それぞれX,Y）
+;tilespacing = 0,0       ;タイル化した画像同士の間隔。
+;ActionNo    = 0         ;使用するアニメのナンバー。
+;velocity    = 0,0       ;画像の移動速度
+
+;---------------------------------------------------------
+
+[BG 00];空
+type = normal
+spriteno = 0, 0
+layerno = 0
+start = 0,240
+delta = 0,0.8
+trans = none
+mask = 0
+
+[BG 00];空2
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = 0,240
+delta = 0.5,0.4
+trans = add
+mask = 1
+
+[BG 00];山
+type = normal
+spriteno = 10, 0
+layerno = 0
+start = 0,240
+delta = 0.55,0.45
+trans = none
+mask = 1
+
+[BG 00];五重塔
+type = normal
+spriteno = 20, 0
+layerno = 0
+start = 45,240
+delta = 0.6,0.5
+trans = none
+mask = 1
+
+[BG 00];中景00
+type = normal
+spriteno = 40, 0
+layerno = 0
+start = 0,240
+delta = 0.65,0.55
+trans = none
+mask = 1
+
+;------------------------------
+
+;舞い散る綿毛
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = 0,0
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 11           
+ActionNo    = 10
+start       = -50,-30
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = -130,-20
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 11           
+ActionNo    = 10
+start       = 100,-45
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = -200,40
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 11           
+ActionNo    = 10
+start       = -120,-70
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = 20,-90
+delta       = 1,1
+trans       = none
+mask        = 1
+
+；比較的上のほう
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = 0,-200
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 11           
+ActionNo    = 10
+start       = -50,-180
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = -80,-150
+delta       = 1,1
+trans       = none
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 11           
+ActionNo    = 10
+start       = -190,-90
+delta       = 1,1
+trans       = none
+mask        = 1
+layerno = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = 160,-120
+delta       = 1,1
+trans       = none
+mask        = 1
+layerno = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = -300,0
+delta       = 1,1
+trans       = none
+mask        = 1
+layerno = 1
+
+[BG move1_mouse] ;mouse
+type        = anim
+id = 10           
+ActionNo    = 10
+start       = -400,-140
+delta       = 1,1
+trans       = none
+mask        = 1
+layerno = 1
+
+;------------------------------
+
+[BG 00];中景01
+type = normal
+spriteno = 40, 1
+layerno = 0
+start = 0,240
+delta = 0.7,0.6
+trans = none
+mask = 1
+
+[BG 00];中景02
+type = normal
+spriteno = 40, 2
+layerno = 0
+start = 0,240
+delta = 0.75,0.65
+trans = none
+mask = 1
+
+[BG 00];ロゴ
+type = normal
+spriteno = 50, 0
+layerno = 0
+start = 0,240
+delta = 0.78,0.68
+trans = add
+mask = 1
+
+[BG 00];中景03
+type = normal
+spriteno = 40, 3
+layerno = 0
+start = 0,240
+delta = 0.8,0.7
+trans = none
+mask = 1
+
+[BG 00];桜
+type = normal
+spriteno = 100, 0
+layerno = 0
+start = 0,240
+delta = 0.85,0.75
+trans = none
+mask = 1
+
+[BG 00];足場
+type = normal
+spriteno = 110, 0
+layerno = 0
+start = 0,255
+delta = 0.88,0.78
+trans = none
+mask = 1
+
+;------------------------------
+
+;動き1コントロール
+[BGCtrlDef move1]
+ctrlID = 10
+looptime = 500
+
+[BGCtrl move1]
+type = velset
+x = 1
+y = 0.5
+time =0
+
+[BGCtrl move1]
+type = velset
+x = 0.8
+y = 0.2
+time = 100
+
+[BGCtrl move1]
+type = velset
+x = 0.9
+y = 0.5
+time = 200
+
+[BGCtrl move1]
+type = velset
+x = 1.1
+y = 0.3
+time = 300
+
+[BGCtrl move1]
+type = posset
+x = 0
+y = 0
+time = 400
+
+;動き2コントロール
+[BGCtrlDef move1]
+ctrlID = 11
+looptime = 500
+
+[BGCtrl move1]
+type = velset
+x = 1.2
+y = 0.8
+time =0
+
+[BGCtrl move1]
+type = velset
+x = 1
+y = 0.5
+time = 110
+
+[BGCtrl move1]
+type = velset
+x = 0.6
+y = 0.3
+time = 220
+
+[BGCtrl move1]
+type = velset
+x = 1.3
+y = 0.8
+time = 330
+
+[BGCtrl move1]
+type = posset
+x = 0
+y = 0
+time = 450
+
+;動き3コントロール
+[BGCtrlDef move1]
+ctrlID = 12
+looptime = 1000
+
+[BGCtrl move1]
+type = velset
+x = 0.3
+y = 0.3
+time =0
+
+[BGCtrl move1]
+type = velset
+x = 0.3
+y = 0.2
+time = 200
+
+[BGCtrl move1]
+type = velset
+x = 0.4
+y = 0.3
+time = 400
+
+[BGCtrl move1]
+type = velset
+x = 0.3
+y = 0.1
+time = 600
+
+[BGCtrl move1]
+type = velset
+x = 0.2
+y = 0.2
+time = 800
+
+[BGCtrl move1]
+type = posset
+x = 0
+y = 0
+time = 999
+
+;動きなし
+[BGCtrlDef move1]
+ctrlID = 13
+looptime = 10
+
+[BGCtrl move1]
+type = null
+time = 5
+
+;------------------------------
+
+[Begin Action 10]
+1, 0, 0 , 0, 10,
+1, 1, 0 , 0, 10,
+1, 2, 0 , 0, 10,
+1, 1, 0 , 0, 10,

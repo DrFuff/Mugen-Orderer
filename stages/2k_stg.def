@@ -1,0 +1,638 @@
+;2k_stg
+[Info]
+name = "2000#"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -150
+boundright = 150
+boundhigh = -70
+boundlow = 0
+verticalfollow = 0.2
+tension = 70
+floortension = 120
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 0,0,0
+yscale = 0
+
+[Reflection]
+intensity = 64
+
+[Music]
+bgmusic = sound/win_2k.ogg
+bgvolume = 0
+
+[BGdef]
+spr = stages/2k_stg.sff
+debugbg = 1
+
+[BG 0]
+type        = norma
+spriteNo    = 0,15
+layerNo     = 0
+start       = -4960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,14
+layerNo     = 0
+start       = -8160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,13
+layerNo     = 0
+start       = -11360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,12
+layerNo     = 0
+start       = -14560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,11
+layerNo     = 0
+start       = -17760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,10
+layerNo     = 0
+start       = -20960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,9
+layerNo     = 0
+start       = -24160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,8
+layerNo     = 0
+start       = -27360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,7
+layerNo     = 0
+start       = -30560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,6
+layerNo     = 0
+start       = -33760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,5
+layerNo     = 0
+start       = -36960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,4
+layerNo     = 0
+start       = -40160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,3
+layerNo     = 0
+start       = -43360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,2
+layerNo     = 0
+start       = -46560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,1
+layerNo     = 0
+start       = -49760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,0
+layerNo     = 0
+start       = -1760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 11,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,1
+layerNo     = 0
+start       = 1760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,2
+layerNo     = 0
+start       = 4960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,3
+layerNo     = 0
+start       = 8160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,4
+layerNo     = 0
+start       = 11360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,5
+layerNo     = 0
+start       = 14560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,6
+layerNo     = 0
+start       = 17760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,7
+layerNo     = 0
+start       = 20960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,8
+layerNo     = 0
+start       = 24160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,9
+layerNo     = 0
+start       = 27360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,10
+layerNo     = 0
+start       = 30560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,11
+layerNo     = 0
+start       = 33760,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,12
+layerNo     = 0
+start       = 36960,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,13
+layerNo     = 0
+start       = 40160,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,14
+layerNo     = 0
+start       = 43360,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0]
+type        = norma
+spriteNo    = 0,15
+layerNo     = 0
+start       = 46560,0
+delta       = 320,0.2
+trans       = none
+mask        = 0
+tile        = 10,0
+tilespacing = 0,0
+
+[BG 0] ;logo
+type        = normal
+spriteno    = 10,3
+layerno     = 0                
+start       = 0,-60
+delta       = 0,0.32
+trans       = add
+mask        = 1
+
+[BG 0] ;Wall-2
+type        = normal
+spriteno    = 1,0
+layerno     = 0                
+start       = 0,110
+delta       = 0.05,0.35
+mask        = 1
+
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 1          
+spriteno    = 2,0
+start       = 0,-200
+delta       = 0,0.32
+mask        = 0
+
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 2          
+spriteno    = 2,0
+start       = 3,200
+delta       = 0,0.32
+mask        = 0
+
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 3          
+spriteno    = 2,0
+start       = -10,10
+delta       = 0,0.32
+mask        = 0
+
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 4          
+spriteno    = 2,1
+start       = 6,0
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 5          
+spriteno    = 2,1
+start       =-4,300
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 6          
+spriteno    = 2,1
+start       = 8,160
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 7          
+spriteno    = 2,2
+start       = 12,240
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 8          
+spriteno    = 2,2
+start       = -8,300
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 9          
+spriteno    = 2,2
+start       = -5,-30
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 10          
+spriteno    = 2,3
+start       = 7,200
+delta       = 0,0.32
+mask        = 0
+[BG move1_mouse] ;mouse
+type        = nomal
+id = 11          
+spriteno    = 2,3
+start       = -3,-120
+delta       = 0,0.32
+mask        = 0
+
+[BG 1] ;Ground
+type        = normal
+spriteno    = 3,0
+layerno     = 0                
+start       = 0,100
+delta       = 0,0.32
+trans       = ADD
+mask        = 0
+id = 50
+
+[BG 1] ;Ground
+type        = normal
+spriteno    = 3,0
+layerno     = 0                
+start       = 0,110
+delta       = 0,0.32
+trans       = ADD
+mask        = 0
+id = 51
+
+[BG 1] ;Ground
+type        = normal
+spriteno    = 10,1
+layerno     = 0                
+start       = 0,180
+;delta       = 0.9,0.9
+delta       = 1,1
+trans       = ADD
+mask        = 0
+
+[BGCtrlDef move1]
+ctrlID = 1
+looptime =200
+
+[BGCtrl move1]
+type = velset
+y = 10
+time =0
+
+[BGCtrl move1]
+type = velset
+y = -10
+time = 100
+
+[BGCtrlDef move1]
+ctrlID = 2
+
+[BGCtrl move1]
+type = SinY
+value = 400,180
+
+[BGCtrlDef move1]
+ctrlID = 3
+
+[BGCtrl move1]
+type = SinY
+value = 600,160
+
+[BGCtrlDef move1]
+ctrlID = 4
+
+[BGCtrl move1]
+type = SinY
+value = 500,260
+
+[BGCtrlDef move1]
+ctrlID = 5
+
+[BGCtrl move1]
+type = SinY
+value = 400,320
+
+[BGCtrlDef move1]
+ctrlID = 6
+
+[BGCtrl move1]
+type = SinY
+value =-420,120
+
+[BGCtrlDef move1]
+ctrlID = 7
+
+[BGCtrl move1]
+type = SinY
+value = -500,154
+
+[BGCtrlDef move1]
+ctrlID = 8
+
+[BGCtrl move1]
+type = SinY
+value = 400,190
+
+[BGCtrlDef move1]
+ctrlID = 9
+
+[BGCtrl move1]
+type = SinY
+value = 400,300
+
+[BGCtrlDef move1]
+ctrlID = 10
+[BGCtrl move1]
+type = SinY
+value = -350,260
+
+[BGCtrlDef move1]
+ctrlID = 11
+
+[BGCtrl move1]
+type = SinY
+value = 444,220
+
+[BGCtrlDef move1]
+ctrlID = 50
+
+[BGCtrl move1]
+type = SinX
+value = 20,80
+
+[BGCtrl move1]
+type = SinY
+value = 120,300
+
+[BGCtrlDef move1]
+ctrlID = 51
+looptaime = 600
+
+[BGCtrl move1]
+type = SinX
+value = 20,60
+
+[BGCtrl move1]
+type = SinY
+value = -120,290

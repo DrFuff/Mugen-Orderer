@@ -1,0 +1,116 @@
+[Info]
+name = "98#"	;98ステージ
+
+[Camera]
+startx = 0              ;カメラＸ軸の位置（この場合の標準位置は画面中央上になる）
+starty = 0              ;カメラＹ軸の位置
+boundleft = -170        ;ステージ左側の長さ（負の数）
+boundright = 170        ;ステージ右側の長さ
+boundhigh = -30         ;ステージの高さ（負の数が上方向）
+boundlow = 0            ;下画面端の位置
+verticalfollow = 0.4    ;縦方向スクロールを追うカメラスピード
+tension = 50            ;画面端からこの値以内に入ると横スクロールを開始する
+floortension = 100      ;地面からこの値より上に行くと縦スクロールを開始する
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 210
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+intensity = 64
+color = 0,0,0
+yscale = -.1
+fade.range = 0,0
+
+[Reflection]
+intensity = 0
+
+[Music]
+bgmusic = sound/win_98.ogg
+bgvolume = 0
+
+[BGdef]
+spr = 98.sff
+debugbg = 0
+
+;========================================================
+;下に行くほど画像表示優先度が高くなります。複数絵ステージです。
+;「　[BG *]　」を同じように下の順に加えれば、さらに増やせます。
+;--------------------------------------------------------
+;[BG 0]
+;type        = normal    ;画像表示タイプ。Normal=静止画、Anim=アニメ画、Parallax=立体静止画（一点透視図法）
+;spriteNo    = 0,0       ;画像ファイル（*.sff）の画像を表示。Animの時は必要無し
+;layerNo     = 0         ;レイヤー属性。0=奥、1=手前に表示
+;start       = 0,0       ;軸位置。このdefファイルで設定した軸位置から数える
+;delta       = 0,0       ;キャラが動いた時のスクロールスピード。小数点以下可能
+;trans       = none      ;透過処理。Add=加算処理（輝く半透明）,Add1=半透明,Sub=減算処理（影の半透明）,None=透過しない
+;mask        = 0         ;画像の背景色を透過させるかどうか。1=Yes,0=No
+;tile        = 0,0       ;タイル化して同じ画像を複数表示させるかどうか（それぞれX,Y）
+;tilespacing = 0,0       ;タイル化した画像同士の間隔。
+;ActionNo    = 0         ;使用するアニメのナンバー。
+;velocity    = 0,0       ;画像の移動速度
+
+[BG 0];背景
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 0
+delta = .9,.9
+trans = none
+
+[BG 1];ロゴ
+type  = normal
+spriteno = 10, 0
+layerno = 0
+start = 0, 0
+delta = .75,.7
+trans = add
+mask = 1
+
+[BG 2];床
+type        = anim
+layerno     = 0  
+delta = .6,.55
+mask        = 1
+ActionNo    = 10
+
+[Begin Action 10]
+100, 0, 0 , 0, 10, ,a
+100, 1, 0 , 0, 10, ,a
+100, 2, 0 , 0, 10, ,a
+100, 3, 0 , 0, 10, ,a
+100, 4, 0 , 0, 10, ,a
+100, 5, 0 , 0, 10, ,a
+100, 6, 0 , 0, 10, ,a
+100, 7, 0 , 0, 10, ,a
+100, 8, 0 , 0, 10, ,a

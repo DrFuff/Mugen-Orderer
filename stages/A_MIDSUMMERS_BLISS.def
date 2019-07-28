@@ -1,0 +1,232 @@
+;BY DISSIDIA
+;MUGEN 1.0 ONLY
+;===============================
+[Info]
+name = "A Midsummer's Bliss"
+mugenversion = 1.0
+[BGdef]
+spr = A_MIDSUMMERS_BLISS.sff
+debugbg = 0  
+[Music]
+bgmusic = sound/A_MIDSUMMERS_BLISS.mp3
+bgvolume = 255    
+bgmloopstart = 2116695
+bgmloopend = 11524608
+loopend = -1     
+[Camera]
+startx = 0            
+starty = 0            
+boundleft = -250
+boundright = 250
+boundhigh = -275
+boundlow = 0          
+verticalfollow = .65
+floortension = 120   
+tension = 100
+overdrawhigh = 100
+overdrawlow = 100
+cuthigh = 0
+cutlow = 0          
+[PlayerInfo]
+p1startx = -140         
+p1starty = 0          
+p1startz = 0          
+p1facing = 1          
+p2startx = 140         
+p2starty = 0          
+p2startz = 0          
+p2facing = -1  
+p3startx = -200         
+p3starty = 0          
+p3startz = 0          
+p3facing = 1          
+p4startx = 200         
+p4starty = 0          
+p4startz = 0          
+p4facing = -1          
+leftbound = -2000      
+rightbound = 2000     
+topbound = 0  
+botbound = 0          
+[Scaling]
+topz = 0               
+botz = 50             
+topscale = 1
+botscale = 1.2        
+[Bound]
+screenleft = 20        
+screenright = 20    
+[StageInfo]
+zoffset = 455
+autoturn = 1         
+resetBG = 0     
+localcoord = 640,480
+xscale = 1
+yscale = 1      
+[Shadow]
+intensity = 112
+color = 0,0,0
+yscale = .15
+fade.range = -400,-100
+[Reflection]
+intensity = 0
+[BG BLACK]
+type  = normal
+spriteno = 0,1
+delta = 0.7,0.7
+mask = 0
+[BG SKY RED]
+type  = normal
+spriteno = 0,2
+delta = 0.7,0.7
+mask = 0
+[BG SKY GREEN]
+type  = normal
+spriteno = 0,3
+delta = 0.7,0.7
+trans = add
+mask = 0
+[BG SKY BLUE]
+type  = normal
+spriteno = 0,4
+delta = 0.7,0.7
+trans = add
+mask = 0
+[BG MOUNTAIN BACK]
+type  = normal
+spriteno = 5,0
+delta = 0.79,0.79
+mask = 1
+[BG MOUNTAIN FRONT]
+type  = normal
+spriteno = 6,0
+delta = 0.84,0.84
+mask = 1
+[BG MOUNTAIN FRONT LIGHTS]
+type  = anim
+actionno = 5
+delta = 0.84,0.84
+[BG BIRD 1]
+type = anim
+actionno = 6
+start = -200,-90
+delta = 0.86,0.86
+tile = 1,0
+velocity = -6,0 
+sin.y = 20,350
+tilespacing = 3000
+[BG BIRD 2]
+type = anim
+actionno = 7
+start = 100,-50
+delta = 0.87,0.87
+tile = 1,0
+velocity = 6,0 
+sin.y = 20,350
+tilespacing = 3000
+[BG POWERLINES BACK]
+type  = normal
+spriteno = 11,0
+delta = 0.88,0.88
+mask = 1
+[BG POWERLINES FRONT]
+type  = normal
+spriteno = 12,0
+delta = 0.92,0.92
+mask = 1
+[BG BIRD 3]
+type = anim
+actionno = 8
+start = -200,-50
+delta = 0.92,0.92
+tile = 1,0
+velocity = -5.5,0 
+sin.y = 20,350
+tilespacing = 3000
+[BG BIRD 4]
+type = anim
+actionno = 9
+start = 100,-20
+delta = 0.95,0.95
+tile = 1,0
+velocity = 5.5,0 
+sin.y = 20,350
+tilespacing = 3000
+[BG ROAD FLOOR]
+type  = normal
+spriteno = 15,0
+delta = 1,1
+mask = 1
+[BG LIGHTS]
+type  = anim
+actionno = 10
+delta = 1,1
+[BG GRASS]
+type  = normal
+spriteno = 19,0
+delta = 1,1
+trans = addalpha
+alpha = 192,72
+layerno = 1
+[BG LENS FLARE]
+type  = normal
+spriteno = 20,0
+delta = 0.75,0.75
+trans = addalpha
+alpha = 200,256
+layerno = 1
+[Begin Action 5]
+7,0,0,0,2,,AS180D256
+7,0,0,0,2,,AS150D256
+[Begin Action 6]
+10,0,0,0,4
+10,1,0,0,4
+10,2,0,0,4
+10,3,0,0,4
+[Begin Action 7]
+10,1,0,0,4,H
+10,2,0,0,4,H
+10,3,0,0,4,H
+10,0,0,0,4,H
+[Begin Action 8]
+13,0,0,0,4
+13,1,0,0,4
+13,2,0,0,4
+13,3,0,0,4
+[Begin Action 9]
+13,1,0,0,4,H
+13,2,0,0,4,H
+13,3,0,0,4,H
+13,0,0,0,4,H
+[Begin Action 10]
+16,0,0,0,3,,AS50D256
+16,0,0,0,3,,AS60D256
+16,0,0,0,3,,AS70D256
+16,0,0,0,3,,AS80D256
+16,0,0,0,3,,AS90D256
+16,0,0,0,3,,AS100D256
+16,0,0,0,3,,AS110D256
+16,0,0,0,3,,AS120D256
+16,0,0,0,3,,AS130D256
+16,0,0,0,3,,AS140D256
+16,0,0,0,3,,AS150D256
+16,0,0,0,3,,AS160D256
+16,0,0,0,3,,AS170D256
+16,0,0,0,3,,AS180D256
+16,0,0,0,3,,AS190D256
+16,0,0,0,3,,AS200D256
+16,0,0,0,3,,AS190D256
+16,0,0,0,3,,AS180D256
+16,0,0,0,3,,AS170D256
+16,0,0,0,3,,AS160D256
+16,0,0,0,3,,AS150D256
+16,0,0,0,3,,AS140D256
+16,0,0,0,3,,AS130D256
+16,0,0,0,3,,AS120D256
+16,0,0,0,3,,AS110D256
+16,0,0,0,3,,AS100D256
+16,0,0,0,3,,AS90D256
+16,0,0,0,3,,AS80D256
+16,0,0,0,3,,AS70D256
+16,0,0,0,3,,AS60D256
+16,0,0,0,3,,AS50D256

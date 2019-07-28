@@ -1,0 +1,78 @@
+[info]
+name = "3 Count Bout situation"
+author = "onlyme"
+info = edited for 3 count bout characters/slammasters 
+
+
+
+[camera]
+startx = 0
+starty = 0
+boundleft = -136
+boundright = 136
+boundhigh = -80
+boundlow = 0
+verticalfollow = 1.95
+floortension = 90
+tension = 40
+
+[playerinfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound = -1000
+rightbound = 1000
+topbound = 0
+botbound = 0
+
+[scaling]
+
+topz = 0
+botz = 50
+topscale = 1
+botscale = 1.2
+
+[bound]
+screenleft = 15
+screenright = 15
+
+[stageinfo]
+zoffset = 210
+autoturn = 1
+resetbg = 1
+
+[shadow]
+intensity = 0
+color = 92,92,92
+yscale = -.22
+fade.range = -300,100
+
+[reflection]
+intensity = 0
+
+[music]
+bgmusic = sound/3countbout_situation.mp3
+bgvolume = 255
+
+[bgdef]
+spr = stages/3countbout_situation.sff
+debugbg = 0
+
+[bg 1]
+type = anim
+actionno = 1
+layerno = 0
+start = 0,240
+
+[begin action 1]
+0,0,0,0,6
+0,1,0,0,6
+0,2,0,0,7
+0,3,0,0,6

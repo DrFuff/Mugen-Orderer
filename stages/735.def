@@ -1,0 +1,207 @@
+[Info]
+name = "735swNu+"	;735
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -30
+boundright = 30
+boundhigh = -187
+boundlow = 0
+verticalfollow = 0.2
+tension = 70
+floortension = 120
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -80
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+;--- Player 2 ---
+p2startx = 80
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+color = 0,0,0
+yscale = 0.2
+reflect = 0
+
+[Music]
+bgmusic = sound/735rozen.ogg
+bgvolume = 100
+
+[BGdef]
+spr = stages/735.sff
+debugbg = 1
+
+[BG 0] ;Wall-2
+type        = normal
+spriteno    = 1,0
+layerno     = 0                
+start       = 0,180
+delta       = 0,0
+trans       = none
+mask        = 0
+
+[BG Floor];è∞1
+type  = parallax
+spriteno = 2,1
+start = 0, 185
+delta  = 0.5,0.5
+mask = 1
+xscale = 0.75, 1.0
+yscalestart = 230
+yscaledelta = 0.8
+
+[BG Floor];è∞1
+type  = parallax
+spriteno = 2,3
+delta       = 0.5,0.5
+start = 0, 183
+delta = .78, .65
+mask = 1
+xscale = 0.75, 1.0
+yscalestart = 230
+yscaledelta = 0.8
+
+[BG Floor];è∞1
+type  = parallax
+spriteno = 2,4
+start = 0, 185
+delta       = 0.5,0.5
+mask = 1
+xscale = 0.75, 1.0
+yscalestart = 220
+yscaledelta = 0.8
+
+[BG Floor];è∞1
+type  = parallax
+spriteno = 2,0
+delta       = 0.6,0.4
+start = 0, 175
+mask = 1
+xscale = 0.75, 1.0
+yscalestart = 183
+yscaledelta = 0.8
+
+[BG Floor];è∞1
+type  = parallax
+spriteno = 2,2
+start = 0, 180
+delta       = 0.6,0.4
+mask = 1
+xscale = 0.7,1
+yscalestart = 180
+yscaledelta = 0.8
+
+[BG 0] ;Wall-2
+type        = normal
+spriteno    = 0,0
+layerno     = 0                
+start       = 0,110
+delta       = 0.6,0.4
+trans       = none
+mask        = 0
+
+[BG 0] ;Wall-2
+type        = normal
+spriteno    = 0,1
+layerno     = 0                
+start       = 0,110
+delta       = 0.6,0.4
+trans       = none
+mask        = 0
+id =10
+
+[BG 0] ;Wall-2
+type        = normal
+spriteno    = 5,0
+layerno     = 0                
+start       = 0,198
+delta       = 1,0.8
+trans       = none
+mask        = 1
+
+[BGCtrlDef move1]
+ctrlID = 10
+looptime = 3000
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 0
+
+[BGCtrl move1]
+type = Enable
+value = 1
+time = 180
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 210
+
+[BGCtrl move1]
+type = Enable
+value = 1
+time = 600
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 630
+
+[BGCtrl move1]
+type = Enable
+value = 1
+time = 1200
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 1230
+
+[BGCtrl move1]
+type = Enable
+value = 1
+time = 1900
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 2600
+
+[BGCtrl move1]
+type = Enable
+value = 1
+time = 2800
+
+[BGCtrl move1]
+type = Enable
+value = 0
+time = 2830
