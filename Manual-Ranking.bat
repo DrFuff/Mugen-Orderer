@@ -1,5 +1,5 @@
 @echo off
-Title Manual Ranker for Stuff by Dr.Fuff v0.3
+Title Manual Ranker for Stuff by Dr.Fuff v0.4
 Color 1e
 :: version date = 28/07/2019  ;DD/MM/YYYY
 :: command for ranking chars using select.def
