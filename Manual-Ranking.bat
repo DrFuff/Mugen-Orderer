@@ -22,7 +22,7 @@ SET rankie=kfm
 SET min=1
 
 :: line number of last character for selection range
-SET max= 1
+SET max=1
 
 :: the characters (P1) ai (1=watch mode, 0=you're playing)
 SET ai=1
@@ -76,6 +76,29 @@ del almostdone.txt
 type allchars.txt
 
 Echo Total Characters = %charcount%
+
+::looks for a random character
+set /a targetchar=%RANDOM% %%charcount +1
+echo %targetchar%
+set /a skip= targetchar - 1
+
+::get the random character's file path
+for /f "skip=%skip% delims=, tokens=1" %%I in (allchars.txt) do (
+    set char1=%%I
+    goto :char1-result
+)
+:char1-result
+set char1=%char1:*:=%
+
+::get the random character's rank
+for /f "skip=%skip% delims=, tokens=3" %%I in (allchars.txt) do (
+    set rank1=%%I
+    goto :rank1-result
+)
+:rank1-result
+set rank1=%rank1:*:=%
+
+echo rand char: %char1%  %rank1%
 
 timeout 5
 echo you can stop the music now :)
