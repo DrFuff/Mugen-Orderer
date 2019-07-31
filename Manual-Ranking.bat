@@ -51,8 +51,12 @@ cd ..
 
 :skip-random-stage
 
-if exist allchars.txt (del allchars.txt)
 set charcount=0
+::Ask the user if they want the allchars.txt file updated
+set /p updatetxt=type (y) if you wish to update allchars.txt 
+if NOT "%updatetxt%"=="y" goto :skip-char-read
+
+if exist allchars.txt (del allchars.txt)
 
 ::adds all characters from select.def to allchars.txt
 Echo BEGINNING FILE READ.  ENJOY MUSIC :)
@@ -73,11 +77,14 @@ find /V "team.maxmatches" last.txt >> almostdone.txt
 del last.txt
 for /f "skip=4 tokens=*" %%E in (almostdone.txt) do (echo %%E>>allchars.txt & set /A charcount = charcount + 1)
 del almostdone.txt
-type allchars.txt
+goto :get-char
 
+:skip-char-read
+for /f "skip=4 tokens=*" %%E in (allchars.txt) do (set /A charcount = charcount + 1)
 Echo Total Characters = %charcount%
 
 ::looks for a random character
+:get-char
 set /a targetchar=%RANDOM% %%charcount +1
 echo %targetchar%
 set /a skip= targetchar - 1
