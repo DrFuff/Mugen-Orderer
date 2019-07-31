@@ -13,10 +13,10 @@ Color 1e
 :: USER VARIABLES
 
 :: your select.def file path (usually data/select.def)
-SET select=.\brokenSELECT.def
+SET select=./brokenSELECT.def
 
 :: set character you wish to rank
-SET rankie=kfm 
+SET rankie=kfm
 
 :: line number of first character for selection range
 SET min=1
@@ -49,9 +49,18 @@ cd stages
 dir /b *.def >> ../stages.txt
 cd ..
 
+set /a srand = %random% %%scount +1
+for /f "skip=%srand% tokens=*" %%I in (stages.txt) do (
+    set stage=%%I
+    goto :stage-result
+)
+:stage-result
+set stage=%stage:*:=%
+
 :skip-random-stage
 
 set charcount=0
+
 ::Ask the user if they want the allchars.txt file updated
 set /p updatetxt=type (y) if you wish to update allchars.txt 
 if NOT "%updatetxt%"=="y" goto :skip-char-read
@@ -80,7 +89,7 @@ del almostdone.txt
 goto :get-char
 
 :skip-char-read
-for /f "skip=4 tokens=*" %%E in (allchars.txt) do (set /A charcount = charcount + 1)
+for /f "tokens=*" %%E in (allchars.txt) do (set /A charcount = charcount + 1)
 Echo Total Characters = %charcount%
 
 ::looks for a random character
@@ -98,16 +107,46 @@ for /f "skip=%skip% delims=, tokens=1" %%I in (allchars.txt) do (
 set char1=%char1:*:=%
 
 ::get the random character's rank
-for /f "skip=%skip% delims=, tokens=3" %%I in (allchars.txt) do (
+for /f "skip=%skip% delims=%TAB%,; tokens=3" %%I in (allchars.txt) do (
     set rank1=%%I
     goto :rank1-result
 )
 :rank1-result
 set rank1=%rank1:*:=%
 
-echo rand char: %char1%  %rank1%
+::get the random character's real name (kinda)
+for /f "delims=/ tokens=2" %%I in ("%char1%") do (
+    set name1=%%I
+    goto :get-name1
+)
+:get-name1
+set name1=%name1:*:=%
 
-timeout 5
-echo you can stop the music now :)
+::get the character's catagory
+set searchC=%skip%
+:repeat-searchC1
+for /f "skip=%searchC% tokens=*" %%I in (allchars.txt) do (
+    set catagory1=%%I
+    goto :get-catagory1
+)
+:get-catagory1
+set catagory1=%catagory1:*:=%
+
+
+
+::get the character's author
+
+CLS
+echo.
+echo. %name1% [%catagory1%] by author [%rank1: =%]
+echo.                   -==VS==-
+echo. %rankie% 
+echo.
+echo on stage %stage%
+
+timeout 10
+
+echo game would start with:
+echo mugen -r %select% -rounds %rounds% -p1.ai %ai% %char1% -p2.ai 1 %rankie% -s %stage%
 
 pause
