@@ -1,7 +1,6 @@
 @echo off
 Title Manual Ranker for Stuff by Dr.Fuff v0.4
 Color 1e
-setlocal EnableDelayedExpansion
 :: version date = 28/07/2019  ;DD/MM/YYYY
 :: command for ranking chars using select.def
 :: made for games with tons of chars or people wishing to rank a collection
@@ -35,10 +34,13 @@ SET rounds=3
 SET stage=randomselect
 
 ::--------------------------------------------------------------------------------------------------------
+::DO NOT EDIT PAST THIS POINT (or save a backup first :))
 
 :: check if stage is "randomselect"
 if NOT "%stage%"=="randomselect" goto skip-random-stage
 
+
+::-------------- START GET STAGES ---------------
 ::counts number of stages in "stages" folder.
 cd stages
 for /f %%a in ('dir /b *.def^|find /c /v "" ') do set scount=%%a
@@ -57,6 +59,8 @@ for /f "skip=%srand% tokens=*" %%I in (stages.txt) do (
 )
 :stage-result
 set stage=%stage:*:=%
+::-------------- END GET STAGES -----------------
+
 
 :skip-random-stage
 
@@ -66,6 +70,8 @@ set charcount=0
 set /p updatetxt=type (y) if you wish to update allchars.txt 
 if NOT "%updatetxt%"=="y" goto :skip-char-read
 
+
+::------------ START SELECT CONVERSION ------------
 if exist allchars.txt (del allchars.txt)
 
 ::adds all characters from select.def to allchars.txt
@@ -88,6 +94,8 @@ del last.txt
 for /f "skip=4 tokens=*" %%E in (almostdone.txt) do (echo %%E>>allchars.txt & set /A charcount = charcount + 1)
 del almostdone.txt
 goto :get-char
+::------------- END SELECT CONVERSION ------------
+
 
 :skip-char-read
 for /f "tokens=*" %%E in (allchars.txt) do (set /A charcount = charcount + 1)
@@ -102,11 +110,11 @@ set /a skip= targetchar -1
 ::get the random character's file path
 ::echo at file
 for /f "skip=%skip% delims=, tokens=1" %%I in (allchars.txt) do (
-    set char1="%%I"
+    set char1=%%I
     goto :char1-result
 )
 :char1-result
-set char1="%char1:*:=%"
+set char1=%char1:*:=%
 
 ::get the random character's catagory
 ::echo at catagory
@@ -114,23 +122,47 @@ set searchC=%skip%
 :catagory1-repeat
 if /i "%searchC%" EQU "-1" (
     set catagory1="ERROR: file ended"
-    goto :rank-not-found
+    goto :skip-comments
     )
 for /f "skip=%searchC% delims=, tokens=3" %%I in (allchars.txt) do (
     set catagory1=%%I
     goto :catagory1-result
 ) 
 :catagory1-result
-set catagorytemp=%catagory1:*:=%
+set catagorytemp=%catagory1:*€=%
 set catagory1=%catagory1:*;=%
 if "%catagory1%" == "%catagorytemp%" (
     set /a searchC= searchC -1
     goto :catagory1-repeat
 )
 
+::get the character's author
+::echo at author
+set searchA=%searchC%
+:author1-repeat
+if /i "%searchA%" EQU "-1" (
+    set author1="ERROR: file ended"
+    goto :skip-comments
+    )
+for /f "skip=%searchA% delims=, tokens=3" %%I in (allchars.txt) do (
+    set author1=%%I
+    goto :author1-result
+) 
+:author1-result
+set authortemp=%author1:*€=%
+set authortemp=%authortemp:*;=%
+for /f "delims=/ tokens=1" %%I in ("%authortemp%") do (
+    set author1=%%I
+    goto :set-author1
+)
+:set-author1
+set author1=%author1:*€=%
+if "%author1%" == "%authortemp%" (
+    set /a searchA= searchA -1
+    goto :author1-repeat
+)
 
-
-:rank-not-found
+:skip-comments
 ::get the random character's rank
 for /f "skip=%skip% delims=, tokens=3" %%I in (allchars.txt) do (
     set rank1=%%I
@@ -152,18 +184,17 @@ for /f "delims=/ tokens=2" %%I in ("%char1%") do (
 :get-name1
 set name1=%name1:*:=%
 
-::get the character's author
-
 CLS
 echo.
-echo. %name1% [%catagory1%] by author [%rank1%]
+echo. %name1% [%catagory1%] by %author1% [%rank1%]
 echo.                   -==V.S==-
 echo. %rankie% 
 echo.                   -=STAGE=-
-echo.                   %stage%
-
+echo.                   %stage:.def=%
+echo.
+echo the line number for the character was %targetchar%
 echo game would start with:
-echo mugen -r %select% -rounds %rounds% -p1.ai %ai% %char1% -p2.ai 1 %rankie% -s %stage%
+echo mugen -r %select% -rounds %rounds% -p1.ai %ai% %char1% -p2.ai 1 %rankie% -s stages/%stage%
 echo.
 echo use ctrl+c to exit, or
 
