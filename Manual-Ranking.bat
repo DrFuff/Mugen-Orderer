@@ -1,16 +1,24 @@
 @echo off
-Title Manual Ranker for Stuff by Dr.Fuff v0.5
+Title Manual Ranker for MUGEN by Dr.Fuff v0.6
 Color 1e
-:: version date = 30/07/2020  ;DD/MM/YYYY
+:: version date = 18/08/2020  ;DD/MM/YYYY
 :: command for ranking chars using select.def
 :: made for games with tons of chars or people wishing to rank a collection
 
 :: This is an large edit of the RANDOM-BATTLE command by Inktrebuchet and uses segments of code
 :: Credit to Inktrebuchet for the original RANDOM-BATTLE command
-:: [website link here]
+:: Batch file and similar tools found here -->( https://mugenguild.com/forum/topics/inks-batch-files--176361.0.html )
+:: I would recommend using the orginial RANDOM-BATTLE if you only intend to use this batch for the random battle functions
+
+:: Please note:
+:: This batch is made to only work with a specfic structure of select.def and is tested that way.  This is CERTAINLY
+:: not going to work as intended, if at all, with any game.  In the future, if this project gets enough support I *might*
+:: make something to contruct a select.def file in a way that gets it to work.
+
 ::--------------------------------------------------------------------------------------------------------
 
 :: USER VARIABLES
+:: these are made to be changed to meet your preferences
 
 :: your system.def file path
 SET system=bM1point0/brokenMUGEN/def/systemEDIT.def
@@ -18,26 +26,29 @@ SET system=bM1point0/brokenMUGEN/def/systemEDIT.def
 :: your select.def file path (usually data/select.def)
 SET select=./data/bM1point0/brokenSELECT.def
 
-:: set character you wish to rank
-SET rankie=kfm
+:: set character on the left ("randomselect" for random)
+SET player1=randomselect
+
+:: set character on the right ("randomselect" for random) 
+SET player2=FoFFF
 
 :: line number of first character for selection range
 SET min=1
 
 :: line number of last character for selection range
-SET max=1
+SET max=10000
 
 :: the characters (P1) ai (1=watch mode, 0=you're playing)
 SET ai=1
 
-:: number of rounds
-SET rounds=3
+:: number of rounds (to win)
+SET rounds=1
 
 :: loops with or without prompt (1=auto play, 0=waits for input after match finishes)
 SET forever-mode=1
 
 :: Stage for ranking (include ".def" at the end, "randomselect" if you want random stages)
-SET stage=randomselect
+SET stage=StageZeroGreen.def
 
 ::--------------------------------------------------------------------------------------------------------
 ::DO NOT EDIT PAST THIS POINT (or save a backup first :))
@@ -81,6 +92,7 @@ if NOT "%updatetxt%"=="y" goto :skip-char-read
 if exist allchars.txt (del allchars.txt)
 
 ::adds all characters from select.def to allchars.txt
+::This is horrible coding, please optimise
 Echo BEGINNING FILE READ.  ENJOY MUSIC :)
 start Elevator-music.mp3
 for /f "skip=%min% eol=r tokens=*" %%I in (%select%) do (echo %%I>>newfile.txt)
@@ -104,120 +116,215 @@ goto :get-char
 
 ::debug
 :skip-char-read
-for /f "tokens=*" %%E in (allchars.txt) do (set /A charcount = charcount + 1)
+for /f "tokens=*" %%E in (allchars.txt) do ( set /A charcount = charcount + 1)
 Echo Total Characters = %charcount%
 
-::looks for a random character
+
+::will transfer player 1 information to player 2 and repeat get-char
+set set1=0
+set set2=0
+set wasRandom1=0
+set wasRandom2=0
+set wasChosen1=0
+set wasChosen2=0
+
+:randomselect-check1
+if %wasRandom1%==1 goto :player1rand
+
+if %wasChosen1%==1 goto :randomselect-check2
+
+if %player1%==randomselect (
+	:player1rand
+	set set1=1
+	set wasRandom1=1
+	goto :get-char
+)
+
+::else/default
+goto :find-char1
+
+:randomselect-check2
+if %wasRandom2%==1 goto :player2rand
+
+if %wasChosen2%==1 goto :start-match
+
+if %player2%==randomselect (
+	:player2rand
+	set set2=1
+	set wasRandom2=1
+	goto :get-char
+)
+
+::else/default
+goto :find-char2
+
+::gets a random char number for a random char or uses found char number
 :get-char
 set /a targetchar=%RANDOM% %%charcount +1
 echo %targetchar%
+::echo %targetchar%>>debugline.txt ::DEBUG::
+:skip-get-char
 set /a skip= targetchar -1
 
 ::get the random character's file path
-::echo at file
+::echo at file (DEBUG)
 for /f "skip=%skip% delims=, tokens=1" %%I in (allchars.txt) do (
-    set char1=%%I
-    goto :char1-result
+    set player=%%I
+    goto :player-result
 )
-:char1-result
-set char1=%char1:*:=%
+:player-result
+set player=%player:*:=%
 
 ::get the random character's catagory
-::echo at catagory
+::echo at catagory (DEBUG)
 set searchC=%skip%
-:catagory1-repeat
+:catagory-repeat
 if /i "%searchC%" EQU "-1" (
-    set catagory1="ERROR: file ended"
+    set catagory="ERROR: file ended"
     goto :skip-comments
     )
 for /f "skip=%searchC% delims=, tokens=3" %%I in (allchars.txt) do (
-    set catagory1=%%I
-    goto :catagory1-result
+    set catagory=%%I
+    goto :catagory-result
 ) 
-:catagory1-result
-set catagorytemp=%catagory1:*€=%
-set catagory1=%catagory1:*;=%
-if "%catagory1%" == "%catagorytemp%" (
-    set /a searchC= searchC -1
-    goto :catagory1-repeat
+:catagory-result
+set catagorytemp=%catagory:*€=%
+set catagory=%catagory:*;=%
+if "%catagory%" == "%catagorytemp%" (
+    set /a searchC=searchC -1
+    goto :catagory-repeat
 )
 ::remove leading spaces
-set catagory1=%catagory1%##
-set catagory1=%catagory1:  ##=##%
-set catagory1=%catagory1: ##=##%
-set catagory1=%catagory1:##=%
+set catagory=%catagory%##
+set catagory=%catagory:  ##=##%
+set catagory=%catagory: ##=##%
+set catagory=%catagory:##=%
 
 ::get the character's author
-::echo at author
+::echo at author (DEBUG)
 set searchA=%searchC%
-:author1-repeat
+:author-repeat
 if /i "%searchA%" EQU "-1" (
-    set author1="ERROR: file ended"
+    set author="ERROR: file ended"
     goto :skip-comments
     )
 for /f "skip=%searchA% delims=, tokens=3" %%I in (allchars.txt) do (
-    set author1=%%I
-    goto :author1-result
+    set author=%%I
+    goto :author-result
 ) 
-:author1-result
-set authortemp=%author1:*€=%
+:author-result
+set authortemp=%author:*€=%
 set authortemp=%authortemp:*;=%
 for /f "delims=/ tokens=1" %%I in ("%authortemp%") do (
-    set author1=%%I
-    goto :set-author1
+    set author=%%I
+    goto :set-author
 )
-:set-author1
-set author1=%author1:*€=%
-if "%author1%" == "%authortemp%" (
+:set-author
+set author=%author:*€=%
+if "%author%" == "%authortemp%" (
     set /a searchA= searchA -1
-    goto :author1-repeat
+    goto :author-repeat
 )
 ::removes following spaces
-set author1=%author1%##
-set author1=%author1:  ##=##%
-set author1=%author1: ##=##%
-set author1=%author1:##=%
+set author=%author%##
+set author=%author:  ##=##%
+set author=%author: ##=##%
+set author=%author:##=%
 
 :skip-comments
 ::get the random character's rank
 for /f "skip=%skip% delims=, tokens=3" %%I in (allchars.txt) do (
-    set rank1=%%I
-    goto :rank1-result
+    set rank=%%I
+    goto :rank-result
 )
-:rank1-result
-set rank1=%rank1:*:=%
-set rank1=%rank1:order=%
-for /f %%a in ("%rank1%") do set rank1=%%a
+:rank-result
+set rank=%rank:*:=%
+set rank=%rank:order=%
+for /f %%a in ("%rank%") do set rank=%%a
 
 ::get the random character's real name (kinda)
-for /f "delims=/ tokens=2" %%I in ("%char1%") do (
-    set name1=%%I
-    goto :get-name1
+for /f "delims=/ tokens=2" %%I in ("%player%") do (
+    set name=%%I
+    goto :get-name
 )
-:get-name1
-set name1=%name1:*:=%
+:get-name
+set name=%name:*:=%
 
-set command=mugen -r %system% -rounds %rounds% -p1.ai %ai% "%char1%" -p2.ai 1 "%rankie%" -s %stage:.def=%
+::add the information retreived at random to correct variables
+if %set1%==1 goto :set-1
+
+if %set2%==1 goto :set-2
+
+
+:start-match
+set command=mugen -r %system% -rounds %rounds% -p1.ai %ai% "%player1%" -p2.ai 1 "%player2%" -s %stage:.def=%
 
 ::what shows up before the game runs the command
 CLS
 echo.
 echo. %name1% [%catagory1%] by %author1% [order%rank1%]
 echo.                   -==V.S==-
-echo. %rankie% 
+echo. %name2% [%catagory2%] by %author2% [order%rank2%]
 echo.                   -=STAGE=-
 echo.                   %stage:.def=%
 echo.
-echo the line number for the character was %targetchar%
-echo game would start with:
-::echo mugen -r %select% -rounds %rounds% -p1.ai %ai% %char1% -p2.ai 1 %rankie% -s stages/%stage%
-echo %command%
+::echo the line number for the last character was %targetchar%
+::echo game would start with:
+::echo mugen -r %select% -rounds %rounds% -p1.ai %ai% %player1% -p2.ai 1 %rankie% -s stages/%stage%
+::echo %command%
 echo.
 %command%
 
 ::stops the madness or not depending on settings
-if %forever-mode%==1 goto get-char
+if %forever-mode%==1 goto :randomselect-check1
 echo use ctrl+c to exit, or
 pause
 
-goto :get-char
+goto :randomselect-check1
+
+::assigns the qualities to the correct character (????)
+:set-1
+set player1=%player%
+set name1=%name%
+set catagory1=%catagory%
+set author1=%author%
+set rank1=%rank%
+set set1=0
+goto :randomselect-check2
+
+:set-2
+set player2=%player%
+set name2=%name%
+set catagory2=%catagory%
+set author2=%author%
+set rank2=%rank%
+set set2=0
+goto :start-match
+
+::finds the name given in the user variables
+::infers that there is a 3 layered path (e.g. !Cluster1/boxer/boxer.def)
+:find-char1
+set lineNum=0
+set set1=1
+set findChar=%player1%
+set wasChosen1=1
+if "%set1%"=="0" (
+	:find-char2
+	set lineNum=0
+	set set2=1
+	::the next line will create an error if player2 contains 'round left bracket' or 'round right bracket'
+	set findChar=%player2%
+	set wasChosen2=1
+)
+::yeah, i'm being hella lazy with this one
+find /n "%findChar%.def" allchars.txt > linenumber.txt
+for /f "delims=[,] skip=2 eol= tokens=1" %%E in (linenumber.txt) do (set lineNum=%%E && goto :lineNum-result)
+:lineNum-result
+set lineNum=%lineNum:*:=%
+set lineNum=%lineNum: =%
+echo. %lineNum%
+set targetchar=%lineNum%
+
+del linenumber.txt
+goto :skip-get-char
+pause
